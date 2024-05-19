@@ -1,0 +1,30 @@
+[submodule "quarto_semestre/tcp/Musify"]
+	path = quarto_semestre/tcp/Musify
+	url = git@github.com:MateusFauri/Musify.git
+[submodule "primeiro_semestre/algoritmos_e_programacao/Wizard-Game"]
+	path = primeiro_semestre/algoritmos_e_programacao/Wizard-Game
+	url = git@github.com:MateusFauri/Wizard-Game.git
+[submodule "segundo_semestre/arquitetura_e_organizacao_de_computadores_1/Cesar"]
+	path = segundo_semestre/arquitetura_e_organizacao_de_computadores_1/Cesar
+	url = git@github.com:MateusFauri/Cesar.git
+[submodule "segundo_semestre/arquitetura_e_organizacao_de_computadores_1/Intel-"]
+	path = segundo_semestre/arquitetura_e_organizacao_de_computadores_1/Intel-
+	url = git@github.com:MateusFauri/Intel-.git
+[submodule "segundo_semestre/estruturas_de_dados/Similaridade-Textual"]
+	path = segundo_semestre/estruturas_de_dados/Similaridade-Textual
+	url = git@github.com:MateusFauri/Similaridade-Textual.git
+[submodule "terceiro_semestre/classificacao_e_pesquisa_de_dados/Ordering_methods"]
+	path = terceiro_semestre/classificacao_e_pesquisa_de_dados/Ordering_methods
+	url = git@github.com:MateusFauri/Ordering_methods.git
+[submodule "terceiro_semestre/classificacao_e_pesquisa_de_dados/Classifica-o-e-Pesquisa-de-Dados"]
+	path = terceiro_semestre/classificacao_e_pesquisa_de_dados/Classifica-o-e-Pesquisa-de-Dados
+	url = git@github.com:MateusFauri/Classifica-o-e-Pesquisa-de-Dados.git
+[submodule "quinto_semestre/sistemas_digitais_para_computadores_a/Neander"]
+	path = quinto_semestre/sistemas_digitais_para_computadores_a/Neander
+	url = git@github.com:MateusFauri/Neander.git
+[submodule "quinto_semestre/sistemas_digitais_para_computadores_a/Multiplica-o-de-Matrizes"]
+	path = quinto_semestre/sistemas_digitais_para_computadores_a/Multiplica-o-de-Matrizes
+	url = git@github.com:MateusFauri/Multiplica-o-de-Matrizes.git
+[submodule "sexto_semestre/organizacao_de_computadores_b/MIPS"]
+	path = sexto_semestre/organizacao_de_computadores_b/MIPS
+	url = git@github.com:MateusFauri/MIPS.git
