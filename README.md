@@ -22,3 +22,7 @@ Repositório com diversos trabalhos realizados durante o curso de Engenharia de 
 
 6° **[Semestre](./sexto_semestre)**
    - Organização de Computadores B
+
+
+## Informações Adicionais
+* Autor:      [Mateus Fauri](https://github.com/MateusFauri)
