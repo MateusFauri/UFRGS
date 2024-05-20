@@ -6,6 +6,8 @@ Repositório com diversos trabalhos realizados durante o curso de Engenharia de 
 
 1° **[Semestre](./primeiro_semestre)**
    - Algorítmos e Programação
+   - Introdução a Arquitetura de Computadores
+   - Introdução a Engenharia de Computadores
    
 2° **[Semestre](./segundo_semestre)**
    - Estrutura de dados
@@ -13,9 +15,11 @@ Repositório com diversos trabalhos realizados durante o curso de Engenharia de 
 
 3° **[Semestre](./terceiro_semestre)**
    - Classificação e Pesquisa de Dados
+   - Circuitos Digitais
 
 4° **[Semestre](./quarto_semestre)**
    - Técnicas de Construção de Programas
+   - Teoria de Computadores
 
 5° **[Semestre](./quinto_semestre)**
    - Sistemas Digitais para Computadores A
