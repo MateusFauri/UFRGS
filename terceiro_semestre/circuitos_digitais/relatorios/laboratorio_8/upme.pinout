@@ -1,0 +1,15 @@
+up=sw0;
+eck = btn2;
+er =btn0;
+es = btn1;
+eena = sw9;
+
+oea[1] = led9;
+oea[0] = led8;
+ope[1] = led6;
+ope[0] = led5;
+sq[3] = led3;
+sq[2] = led2;
+sq[1] = led1;
+sq[0] = led0;
+

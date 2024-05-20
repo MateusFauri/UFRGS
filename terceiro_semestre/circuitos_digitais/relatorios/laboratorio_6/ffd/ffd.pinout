@@ -1,0 +1,8 @@
+//  VERILOG PORT        BOARD COMPONENT
+    
+    ed = sw0;
+	eena= sw9;
+	eck = btn0;
+    er = btn1;
+    es = btn2;
+    sq = led0;

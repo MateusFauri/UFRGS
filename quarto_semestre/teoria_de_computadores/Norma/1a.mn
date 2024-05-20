@@ -1,0 +1,54 @@
+// A:=0 
+operation zerar(A){ 
+    1: if zero A then goto 0 else goto 2 
+    2: do dec A goto 1 
+} 
+
+// A:=A+B usando C (soma conservative) 
+operation soma(A,B,C){
+    1: if zero B then goto 5 else goto 2 
+    2: do dec B goto 3 
+    3: do inc A goto 4 
+    4: do inc C goto 1 
+    5: if zero C then goto 0 else goto 6
+    6: do dec C goto 7 
+    7: do inc B goto 5 
+} 
+
+// A:=B usando C (atribuição conservativa) 
+operation atribui(A,B,C){ 
+    1: do zerar(A) goto 2 
+    2: do soma(A,B,C) goto 0 
+}
+
+// B := A * C usando D (atribuição não destrutiva)
+operation multiplicacao(A,B,C,D){
+  1: if zero C then goto 3 else goto 2
+  2: if zero A then goto 3 else goto 4
+  3: do zerar(B) goto 0
+  4: if zero C then goto 0 else goto 5
+  5: do soma(B,A,D) goto 6
+  6: do dec C goto 4
+}
+
+// Usa o registrador C D E F (alem dos padroes)
+// Usos:
+// C usado para a exponenciação do X
+// D usado para operaçoes nao destrutivas
+// E usado para somar dois e depois usado para multiplcar X por 3
+// F usado para guardar o valor da multiplicação do 3 por X
+main{
+  1: do atribui(C,X,D) goto 2
+  2: do zerar(D) goto 3 
+  3: do multiplicacao(X,Y,C,D) goto 4
+  4: do inc E goto 5
+  5: do inc E goto 6
+  6: do zerar(D) goto 7
+  7: do soma(Y,E,D) goto 8
+  8: do zerar(D) goto 9
+  9: do inc E goto 10
+  10: do multiplicacao(X,F,E,D) goto 11
+  11: if zero F then goto 0 else goto 12
+  12: do dec F goto 13
+  13: do dec Y goto 11
+}

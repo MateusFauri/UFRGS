@@ -1,0 +1,18 @@
+subtrai = sw9;
+
+s[1] = sw7;
+s[0] = sw6;
+
+b[2] = sw5;
+b[1] = sw4;
+b[0] = sw3;
+
+a[2] = sw2;
+a[1] = sw1;
+a[0] = sw0;
+
+cout = led9;
+
+fi[2] = led2;
+fi[1] = led1;
+fi[0] = led0;

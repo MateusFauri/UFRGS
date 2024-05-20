@@ -1,0 +1,6 @@
+//  VERILOG PORT        BOARD COMPONENT
+    a     =           sw0;            
+    b     =           sw1;
+    s     =           led0;  
+    cout  =           led1;
+    

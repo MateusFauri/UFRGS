@@ -1,0 +1,14 @@
+
+UM = VCC;
+ZERO = GND;
+eck = clk_1hz;
+er =btn0;
+es = btn1;
+eena = sw9;
+sq[6] = led6;
+sq[5] = led5;
+sq[4] = led4;
+sq[3] = led3;
+sq[2] = led2;
+sq[1] = led1;
+sq[0] = led0;

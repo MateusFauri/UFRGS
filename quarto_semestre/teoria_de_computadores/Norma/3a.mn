@@ -1,0 +1,99 @@
+// limpa variável
+operation clear(A){
+ 1: if zero A then goto 0 else goto 2
+ 2: do dec A goto 1
+}
+
+// A:=A+B (soma destrutiva)
+operation soma(A,B){
+  1: if zero B then goto 0 else goto 2
+  2: do dec B goto 3
+  3: do inc A goto 1
+}
+
+// A:=A+B (soma não-destrutiva)
+operation soma(A,B,C){
+  1: if zero B then goto 5 else goto 2
+  2: do dec B goto 3
+  3: do inc A goto 4
+  4: do inc C goto 1
+  5: if zero C then goto 0 else goto 6
+  6: do dec C goto 7
+  7: do inc B goto 5
+}
+
+// A:=B (atribuição destrutiva)
+operation load(A,B){
+  1: do clear(A) goto 2
+  2: do soma(A,B) goto 0
+}
+
+// A:=B usando C (atribuição não-destrutiva)
+operation load(A,B,C){
+  1: do clear(A) goto 2
+  2: do soma(A,B,C) goto 0
+}
+
+// A:=A div 2 usando C (divisão inteira por 2)
+operation div2(A,C){
+  1: do load(C,A) goto 2
+  2: if zero C then goto 0 else goto 3
+  3: do dec C goto 4
+  4: if zero C then goto 0 else goto 5
+  5: do dec C goto 6
+  6: do inc A goto 2
+}
+
+// A divisivel_por_2 usando C (teste se multiplo de 2)
+test divBy2(A,C){
+  1: do load(C,A) goto 2
+  2: if zero C then goto true else goto 3
+  3: do dec C goto 4
+  4: do inc A goto 5
+  5: if zero C then goto false else goto 6
+  6: do inc A goto 7
+  7: do dec C goto 2
+}
+
+// A:=fst(B) usando C,D (extrai o primeiro componente do par)
+operation decod(A,B,C,D){
+  1: do clear(A) goto 2
+  2: do load(C,B,D) goto 3
+  3: if divBy2(C,D) then goto 4 else goto 6
+  4: do div2(C,D) goto 5
+  5: do inc A goto 3
+}
+
+operation decod2(A,B,C,D) {
+  1: do clear(A) goto 2
+  2: do load(C,B,D) goto 3
+  3: do div2(C,D) goto 4
+  4: do load (A,C,F) goto 0
+}
+
+operation a_vezes_b(A, B, C, D){
+    1: do load(D,A,C) goto 2
+    2: do clear (A) goto 3
+    3: if zero B then goto 0 else goto 4
+    4: do soma(A, D, C) goto 5
+    5: do dec B goto 3
+}
+// Programa principal
+main {
+//atribui o valor X a variável A
+//Decodifica primeiro elemento do par
+   1: if zero X then goto 0 else goto 2
+   2: do decod(A,X,C,D) goto 3
+//Decodifica segundo elemento do par
+  3: if zero C then goto 0 else goto 4
+  4: do decod2(B,C,D,E) goto 5
+// A contem x e B contem y
+// A contem a soma de x+y
+  5: do soma(A,B,C) goto 6
+// fazer A vezes B e guardando em A
+  6: do load (B,A,C) goto 7
+  7: do a_vezes_b (A,B,C,F) goto 8
+//move o valor para Y
+  8: do load (Y,A,C) goto 0
+
+}

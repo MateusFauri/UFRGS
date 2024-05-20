@@ -1,0 +1,85 @@
+
+// limpa variável
+operation clear(A){
+ 1: if zero A then goto 0 else goto 2
+ 2: do dec A goto 1
+}
+
+
+// A:=A+B (soma não-destrutiva)
+operation soma(A,B,C){
+  1: if zero B then goto 5 else goto 2
+  2: do dec B goto 3
+  3: do inc A goto 4
+  4: do inc C goto 1
+  5: if zero C then goto 0 else goto 6
+  6: do dec C goto 7
+  7: do inc B goto 5
+}
+
+
+// A:=B usando C (atribuição não-destrutiva)
+operation load(A,B,C){
+  1: do clear(A) goto 2
+  2: do soma(A,B,C) goto 0
+}
+// soma A:= A + B usando C
+operation soma (A, B, C){
+    1: if zero B then goto 5 else goto 2
+    2: do dec B goto 3
+    3: do inc A goto 4
+    4: do inc C goto 1
+    5: if zero C then goto 0 else goto 6
+    6: do dec C goto 7
+    7: do inc B goto 5
+}
+
+operation vezes_dois(A){
+    1: do load(G, A, C) goto 2
+    2: do soma(A, G, C) goto 0
+}
+
+
+operation dois_elevado(A, B){
+    1: if zero B then goto 2 else goto 3
+    2: do inc A goto 0
+    3: do inc A goto 4
+    4: do inc A goto 5
+    5: if cmp B 1 then goto 0 else goto 6
+    6: do dec B goto 7
+    7: do vezes_dois(A) goto 8
+    8: do dec B goto 9
+    9: if zero B then goto 0 else goto 7 
+}
+operation a_vezes_b (A, B, C, D){
+    1: do load(D,A,C) goto 2
+    2: do load(J,B,C) goto 3
+    3: if zero J then goto 0 else goto 4
+    4: do soma(I, D, C) goto 5
+    5: do dec J goto 3
+}
+operation codificacao (A,B) {
+ //Transformará o valor de A em 2^A e salvara em D
+ 1: do load(F,A,C) goto 2
+ 2: do dois_elevado(D,F) goto 3
+//Transformará o valor de b em 2xB+1 e salvará na variável E
+ 3: do load(E,B,C) goto 4
+ 4: do vezes_dois (E) goto 5
+ 5: do inc E goto 6
+ //Fazer a multiplicação do reg E X D, salva no reg I
+ 6: do a_vezes_b (E,D,C,H) goto 7
+ //passa o valor de I para Y(saída) e C(está no enunciado que o valor da cod deveria estar no C)
+ 7: do load(Y,I,C) goto 8
+ 8: do load(C,I,L) goto 0
+}
+
+// Programa principal
+main {
+ //atribui o valor X a variável A
+ 1: do load(A,X,C)  goto 2 
+ //atribui o valor X+1 a variável B
+ 2: do load(B,X,C) goto 3
+ 3: do inc B goto 4
+ 4: do codificacao(A,B) goto 0
+
+} 

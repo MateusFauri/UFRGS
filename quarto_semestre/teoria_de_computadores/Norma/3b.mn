@@ -1,0 +1,126 @@
+// limpa variável
+operation clear(A){
+ 1: if zero A then goto 0 else goto 2
+ 2: do dec A goto 1
+}
+
+// A:=A+B (soma destrutiva)
+operation soma(A,B){
+  1: if zero B then goto 0 else goto 2
+  2: do dec B goto 3
+  3: do inc A goto 1
+}
+
+// A:=A+B (soma não-destrutiva)
+operation soma(A,B,C){
+  1: if zero B then goto 5 else goto 2
+  2: do dec B goto 3
+  3: do inc A goto 4
+  4: do inc C goto 1
+  5: if zero C then goto 0 else goto 6
+  6: do dec C goto 7
+  7: do inc B goto 5
+}
+
+// A:=B (atribuição destrutiva)
+operation load(A,B){
+  1: do clear(A) goto 2
+  2: do soma(A,B) goto 0
+}
+
+// A:=B usando C (atribuição não-destrutiva)
+operation load(A,B,C){
+  1: do clear(A) goto 2
+  2: do soma(A,B,C) goto 0
+}
+
+// A:=A div 2 usando C (divisão inteira por 2)
+operation div2(A,C){
+  1: do load(C,A) goto 2
+  2: if zero C then goto 0 else goto 3
+  3: do dec C goto 4
+  4: if zero C then goto 0 else goto 5
+  5: do dec C goto 6
+  6: do inc A goto 2
+}
+
+// A divisivel_por_2 usando C (teste se multiplo de 2)
+test divBy2(A,C){
+  1: do load(C,A) goto 2
+  2: if zero C then goto true else goto 3
+  3: do dec C goto 4
+  4: do inc A goto 5
+  5: if zero C then goto false else goto 6
+  6: do inc A goto 7
+  7: do dec C goto 2
+}
+
+// A:=fst(B) usando C,D (extrai o primeiro componente do par)
+operation decod(A,B,C,D){
+  1: do clear(A) goto 2
+  2: do load(C,B,D) goto 3
+  3: if divBy2(C,D) then goto 4 else goto 6
+  4: do div2(C,D) goto 5
+  5: do inc A goto 3
+}
+
+operation decod2(A,B,C,D) {
+  1: do clear(A) goto 2
+  2: do load(C,B,D) goto 3
+  3: do div2(C,D) goto 4
+  4: do load (A,C,F) goto 0
+}
+
+operation a_vezes_b(A, B, C, D){
+    1: do load(D,A,C) goto 2
+    2: do clear (A) goto 3
+    3: if zero B then goto 0 else goto 4
+    4: do soma(A, D, C) goto 5
+    5: do dec B goto 3
+}
+// Operação: A:= A - B usando C
+operation a_menos_b_div(A, B, C){
+    1: if zero B then goto 6 else goto 2
+    2: do dec B goto 3
+    3: if zero A then goto 9 else goto 4
+    4: do dec A goto 5
+    5: do inc C goto 1
+    6: if zero C then goto 0 else goto 7
+    7: do dec C goto 8
+    8: do inc B goto 6
+    9: do inc F goto 6
+ 
+} 
+operation a_menos_b(A, B){
+    1: if zero B then goto 0 else goto 2
+    2: do dec B goto 3
+    3: do dec A goto 1
+ 
+} 
+// Operação: A := A / B
+operation a_div_b(A, B, C, D){
+    1: do load(C,A,D) goto 2
+    2: if zero C then goto 0 else goto 3
+    3: do a_menos_b_div(C, B, D) goto 4
+    4: do inc E goto 2
+
+}
+// Programa principal
+main {
+//atribui o valor X a variável A
+//Decodifica primeiro elemento do par
+   1: if zero X then goto 0 else goto 2
+   2: do decod(A,X,C,D) goto 3
+//Decodifica segundo elemento do par
+  3: if zero C then goto 0 else goto 4
+  4: do decod2(B,C,D,E) goto 5
+//Testa se o valor de B é zero para que seja possível a divisão
+  5: if zero B then goto 0 else goto 6
+//Chama divisao
+  6: do a_div_b (A,B,C,D) goto 7
+//Correcao para numeros que nao tem divisao inteira
+  7: do a_menos_b(E,F) goto 8
+//Passa o valor de E para Y
+  8: do load (Y,E,C) goto 0
+
+}

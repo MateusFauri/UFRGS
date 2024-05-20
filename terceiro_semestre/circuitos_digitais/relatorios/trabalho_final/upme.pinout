@@ -1,0 +1,18 @@
+up=sw0;
+eck = clk_1hz;
+er = btn0;
+es = btn1;
+high = VCC;
+low = GND;
+
+
+oea[3] = led9;
+oea[2] = led8;
+oea[1] = led7;
+oea[0] = led6;
+
+sq[3] = led3;
+sq[2] = led2;
+sq[1] = led1;
+sq[0] = led0;
+

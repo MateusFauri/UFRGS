@@ -1,0 +1,10 @@
+in1           =   sw1;
+in0           =   sw0;
+in2           =   sw2;
+a             =   segd0.a_on;
+b             =   segd0.b_on;
+c             =   segd0.c_on;
+d             =   segd0.d_on;
+e             =   segd0.e_on;
+f             =   segd0.f_on;
+g             =   segd0.g_on;

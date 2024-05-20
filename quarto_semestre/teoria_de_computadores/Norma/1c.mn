@@ -1,0 +1,43 @@
+//limpa variavel
+operation clear(A){
+    1: if zero A then goto 0 else goto 2
+    2: do dec A goto 1
+}
+
+
+// Operação: A:= A + B (soma destrutiva)
+operation soma(A, B){
+    1: if zero B then goto 0 else goto 2
+    2: do dec B goto 3
+    3: do inc A goto 1
+}
+
+
+// Operação: A:= B (atribuição destrutiva)
+operation load(A, B){
+    1: do clear(A) goto 2
+    2: do soma(A, B) goto 0
+}
+
+
+// A divisivel_por_3 usando C (teste se múltiplo de 3)
+test divBy3(A,C){
+  1: do load(C,A) goto 2
+  2: if zero C then goto true else goto 3
+  3: do dec C goto 4
+  4: do inc A goto 5
+  5: if zero C then goto false else goto 6
+  6: do inc A goto 7
+  7: do dec C goto 8
+  8: if zero C then goto false else goto 9
+  9: do dec C goto 10
+ 10: do inc A goto 2
+}
+
+
+// Função main
+main{
+    1: if divBy3(X,A) then goto 2 else goto 0
+    2: do inc Y goto 0
+
+}

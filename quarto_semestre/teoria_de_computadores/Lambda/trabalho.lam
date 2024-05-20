@@ -1,0 +1,131 @@
+let
+
+
+-- Booleanos
+true = \x y. x;
+false = \x y. y;
+
+-- if
+if = \b e1 e2. ((b e1) e2);
+
+-- not 
+not = \b. if b false true;
+
+-- and
+and = \b1 b2. if b1 b2 false;
+
+-- or 
+or = \b1 b2. if b1 true b2;
+
+-- successor 
+succ = \n. (\a b. a( n a b) );
+
+
+-- soma
+add = \n1 n2. \a b. n1 a (n2 a b);
+
+
+--multiplicação
+
+mul = \n1 n2. \a b. n1(n2 a) b;
+
+
+-- par
+pair = \n1 n2. (\c. c n1 n2);
+
+-- first
+fst = \p. p true;
+
+-- second
+snd = \p. p false;
+
+-- Shift Inc
+shiftInc = \p. pair (snd p) (succ (snd p) );
+
+-- predecessor
+pred = \n. fst (n shiftInc (pair 0 0));
+
+
+--subtração
+sub = \n1 n2. n2 pred n1;
+
+-- teste zero
+isZero = \n. n (\x. false) true;
+
+
+-- teste menor
+menor = \a b. not(isZero (sub b a));
+
+-- teste maior 
+maior = \a b. menor b a;
+
+--exponenciação
+exponenciacao = \n1 n2. n2 (\x. mul n1 x) 1;
+
+--Listas
+empty = \x. true;
+cons = pair;
+head = fst;
+tail = snd;
+-- Teste se a lista está vazia
+isEmpty = \l. l (\x y. false);
+
+-- COMBINADOR DE PONTO FIXO
+    Y = \f. (\x. f (x x)) (\x. f (x x));  
+ 
+
+-- Questão A: Se um número é diferente do outro, retorna true
+diferente = \a b. or (menor a b) (maior a b);
+
+
+--Questão B: Calcular o polinomio a²+3b+1
+  primeiroTermo = \n1. exponenciacao n1 2;
+  segundoTermo = \n2. mul n2 3;
+  polinomio = \n1 n2. add (add (primeiroTermo n1) (segundoTermo n2)) 1;
+
+
+-- Questão C: Se um número é múltiplo de 3, retorna true
+--- Multiplo 3
+multiplo3 = \S. \n. if (isZero n) 
+                                    true 
+                                    (if (isZero (pred n))
+                                          false
+                                          (if (isZero (pred (pred n)))
+                                                false
+                                                (S (pred (pred (pred n))))
+                                          )
+                                    );   
+multTres = Y multiplo3;
+
+
+--Questão D: Inverter Fração caso a > 0
+  swap = \p. pair (snd p) (fst p);
+  AeZero = \p. isZero (fst p);
+  invFrac = \p. (AeZero p) p (swap p);
+
+-- Questão E: Realizar a multiplicação dos elementos da lista
+multFrac = \p1 p2. pair (mul(fst p1) (fst p2)) (mul (snd p1)
+ (snd p2));
+
+-- Questão F: Realizar a soma dos pares (a,b) (c,d) = (ad+bc,bd)
+   ad = \p1 p2. mul (fst p1) (snd p2);
+   bc = \p1 p2. mul (snd p1) (fst p2);
+   bd = \p1 p2. mul (snd p1) (snd p2);
+   somaFrac = \p1 p2. pair (add (ad p1 p2)  (bc p1 p2)) (bd p1 p2);
+
+
+-- Questão G: Multiplicação dos elementos de uma Lista
+   -- Multiplicação Lista
+    multLista_padrao = \S. \l. if (isEmpty l) 1 (mul (head l) (S (tail l)));                          
+                  
+   multLista = Y multLista_padrao;
+
+-- Questão F: Fatorial de um numero
+
+  padrao = \R. \n. (isZero n) 1 (mul n (R (pred n)));
+  
+  fat = Y padrao;
+
+in
+
+  fat 2

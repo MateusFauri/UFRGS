@@ -1,0 +1,8 @@
+//  VERILOG PORT        BOARD COMPONENT
+    a0     =           sw0;            
+    a1     =           sw1;
+    b0     =           sw8;            
+    b1     =           sw9;
+    s0   =           led0;
+    s1     =           led1;  
+    s2  =           led2;

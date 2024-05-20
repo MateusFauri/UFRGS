@@ -1,0 +1,208 @@
+Mateus  Fauri
+
+Opção de trabalho 1
+
+  0   32 129   LDA 129
+  2  160 104   JZ  104
+  4   32 130   LDA 130
+  6  160 104   JZ  104
+  8   32 135   LDA 135
+ 10   16 131   STA 131
+ 12   16 134   STA 134		^ inicializando as variaveis
+ 14   32 128   LDA 128				
+ 16   16 134   STA 134
+ 18  160 100   JZ  100
+ 20   48 132   AND 132
+ 22  160  26   JZ  26
+ 24  128 104   JMP 104		^ vendo se é par ou não
+ 26   32 129   LDA 129
+ 28   96       NOT
+ 29   48 132   ADD 132
+ 31   16 137   STA 137		^ colocando o valor negativo de a no endereço 137
+ 33   32 134   LDA 134
+ 35  160  61   JZ  61
+ 37   80 136   AND 136
+ 39  160  49   JZ  49
+ 41   32 137   LDA 137
+ 43   48 134   ADD 134
+ 45   16 134   STA 134
+ 47  128  33   JMP 33		^ testando se o valor 128 é negativo ou se é maior que 127 para não dar problema no algoritmo (para usar inteiro positivo)
+ 49   32 137   LDA 137
+ 51   48 134   ADD 134
+ 53  160  61   JZ  61
+ 55  144 104   JN  104
+ 57   16 134   STA 134
+ 59  128  49   JMP 49		^ fazendo a divisão e teste no numero menor que 127, pois dai posso usar o jn sem problemas (pois se o numero voltar a ser maior que 127 é por que deu problema e não sera inteira a divisão)
+ 61   32 128   LDA 128		
+ 63   16 134   STA 134
+ 65   32 130   LDA 130
+ 67   96       NOT
+ 68   48 132   ADD 132
+ 70   16 138   STA 138		^ inicializando o valor b, colocando seu valor negativo no endereço 138
+ 72   32 134   LDA 134
+ 74  160 100   JZ  100		^ vendo se o valor 128 é zero (percebi agora no final que ja tinha testado isso, porem só muda duas linhas e nao interfere no programa)
+ 76   80 136   AND 136
+ 78  160  88   JZ  88
+ 80   32 138   LDA 138
+ 82   48 134   ADD 134
+ 84   16 134   STA 134
+ 86  128  72   JMP 72		^ fazendo os mesmo testes com b que fiz com a, para ver se é maior que 127 
+ 88   32 138   LDA 138
+ 90   48 134   ADD 134
+ 92  160 100   JZ  100
+ 94  144 104   JN  104
+ 96   16 134   STA 134
+ 98  128  88   JMP 88		^ fazendo a divisão, igual ao valor a acima.
+100   32 132   LDA 132
+102  128 106   JMP 106
+104   32 133   LDA 133
+106   16 131   STA 131		^ se o numero for especial vai para o endereço 100 para gravar 1 no verificador, caso contrario vai para o endereço 106 para gravar 255 no verificador
+108  240       HLT
+109    0       NOP
+110    0       NOP
+111    0       NOP
+112    0       NOP
+113    0       NOP
+114    0       NOP
+115    0       NOP
+116    0       NOP
+117    0       NOP
+118    0       NOP
+119    0       NOP
+120    0       NOP
+121    0       NOP
+122    0       NOP
+123    0       NOP
+124    0       NOP
+125    0       NOP
+126    0       NOP
+127    0       NOP
+
+128    0		^ numero inteiro positivo
+129    0      		^ valor de a
+130    0      		^ valor de b 
+131    0      		^ resultado  1- sim e 255- não
+132    1      		^ 00000001
+133  255      		^ 11111111
+134    0      		^ contador
+135    0 		^ para limpar as variaveis     
+136  128      		^ mascara para os testes se o numero não tem o bit mais significativo
+137    0      		^ valor negativo de a     usei as endereços para os valores negativos para encurtar o programa, porem não encurtou tanto quanto eu queria.
+138    0      		^ valor negativo de b    
+139    0      
+140    0      
+141    0      
+142    0      
+143    0      
+144    0      
+145    0      
+146    0      
+147    0      
+148    0      
+149    0      
+150    0      
+151    0      
+152    0      
+153    0      
+154    0      
+155    0      
+156    0      
+157    0      
+158    0      
+159    0      
+160    0      
+161    0      
+162    0      
+163    0      
+164    0      
+165    0      
+166    0      
+167    0      
+168    0      
+169    0      
+170    0      
+171    0      
+172    0      
+173    0      
+174    0      
+175    0      
+176    0      
+177    0      
+178    0      
+179    0      
+180    0      
+181    0      
+182    0      
+183    0      
+184    0      
+185    0      
+186    0      
+187    0      
+188    0      
+189    0      
+190    0      
+191    0      
+192    0      
+193    0      
+194    0      
+195    0      
+196    0      
+197    0      
+198    0      
+199    0      
+200    0      
+201    0      
+202    0      
+203    0      
+204    0      
+205    0      
+206    0      
+207    0      
+208    0      
+209    0      
+210    0      
+211    0      
+212    0      
+213    0      
+214    0      
+215    0      
+216    0      
+217    0      
+218    0      
+219    0      
+220    0      
+221    0      
+222    0      
+223    0      
+224    0      
+225    0      
+226    0      
+227    0      
+228    0      
+229    0      
+230    0      
+231    0      
+232    0      
+233    0      
+234    0      
+235    0      
+236    0      
+237    0      
+238    0      
+239    0      
+240    0      
+241    0      
+242    0      
+243    0      
+244    0      
+245    0      
+246    0      
+247    0      
+248    0      
+249    0      
+250    0      
+251    0      
+252    0      
+253    0      
+254    0      
+255    0      

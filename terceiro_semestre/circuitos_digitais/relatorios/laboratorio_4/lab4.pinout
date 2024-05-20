@@ -1,0 +1,25 @@
+botao          =   btn0;
+
+a1             =   segd0.a_on;
+b1             =   segd0.b_on;
+c1             =   segd0.c_on;
+d1             =   segd0.d_on;
+e1             =   segd0.e_on;
+f1             =   segd0.f_on;
+g1             =   segd0.g_on;
+
+a2             =   segd1.a_on;
+b2             =   segd1.b_on;
+c2             =   segd1.c_on;
+d2             =   segd1.d_on;
+e2             =   segd1.e_on;
+f2             =   segd1.f_on;
+g2             =   segd1.g_on;
+
+a3             =   segd2.a_on;
+b3             =   segd2.b_on;
+c3             =   segd2.c_on;
+d3             =   segd2.d_on;
+e3             =   segd2.e_on;
+f3             =   segd2.f_on;
+g3             =   segd2.g_on;
